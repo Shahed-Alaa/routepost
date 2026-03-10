@@ -4,7 +4,7 @@ const baseURL = import.meta.env.VITE_BASE_URL;
 
 export async function registerUser(body) {
     
-    let data = await axios.post( `${baseURL}/users/signup`,body , {
+    let data = await axios.post( `https://linked-posts.routemisr.com/users/signup`,body , {
         headers:{
             "Content-Type" : "application/json"
         }
@@ -15,7 +15,7 @@ export async function registerUser(body) {
 
 export async function loginUser(body) {
     
-    let data = await axios.post( `${baseURL}/users/signin`,body , {
+    let data = await axios.post( `https://linked-posts.routemisr.com/users/signin`,body , {
         headers:{
             "Content-Type" : "application/json"
         }
@@ -27,7 +27,7 @@ export async function loginUser(body) {
 
 export function changePassword(data){
 
- return axios.patch(`${baseURL}/users/change-password`,
+ return axios.patch(`https://linked-posts.routemisr.com/users/change-password`,
   {
    password: data.password,
    newPassword: data.newPassword
