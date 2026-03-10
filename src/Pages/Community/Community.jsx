@@ -28,18 +28,13 @@ export default function Community() {
 //   fetchAllPosts();
 // }, [])
 
-const { data: posts, isLoading, isError, error } = useQuery(
-    ["getPosts"],
-    getAllPosts,
-    {
-        select: (data) => data.data.data.posts,
-        onSuccess: (data) => {
-            // عند إضافة أو تعديل البوست، قم بتحديث البيانات المحفوظة في الـ cache
-            queryClient.setQueryData(["getPosts"], data);
-        }
-    }
-);
-        
+const {data:posts , isLoading, isError , error } = useQuery({
+
+  queryKey:["getPosts"],
+  queryFn: getAllPosts,
+  select:(data)=>data.data.data.posts,
+})
+
     const [sendPhoto, setSendPhoto] = useState("")
   
     const [postContent, setPostContent] = useState("")
@@ -65,7 +60,7 @@ const { data: posts, isLoading, isError, error } = useQuery(
               
               toast.success(response.data.message)
               
-              setAllPosts(prevPosts => [newPost, ...prevPosts]);
+              setAllPosts();
             
           } catch (error) {
               console.log(error);
