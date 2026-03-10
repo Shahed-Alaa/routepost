@@ -8,7 +8,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 
-export default function AuthLeftSection({h2 , span , p}) {
+export default function AuthLeftSection() {
   
     return (
     <>

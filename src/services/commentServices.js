@@ -6,7 +6,7 @@ export async function getAllComments(postId) {
 
     const token = localStorage.getItem("userToken")
 
-    let data = await axios.get(`https://linked-posts.routemisr.com/posts/${postId}/comments?page=1&limit=10`  , {
+    let data = await axios.get(`${baseURL}/posts/${postId}/comments?page=1&limit=10`  , {
         headers:{
             "Content-Type" :"application/json",
             "Authorization" :  `Bearer ${token}`
@@ -22,7 +22,7 @@ export async function createComments(postId , formData) {
 
     const token = localStorage.getItem("userToken")
 
-    let data = await axios.post(`https://linked-posts.routemisr.com/posts/${postId}/comments`  , formData , {
+    let data = await axios.post(`${baseURL}/posts/${postId}/comments`  , formData , {
         headers:{
             "Authorization" :  `Bearer ${token}`,
 

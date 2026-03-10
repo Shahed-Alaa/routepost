@@ -9,13 +9,13 @@ import { useMutation } from '@tanstack/react-query';
 export default function UpdatePost({post}) {
 console.log(post);
 
-  // const baseURL = import.meta.env.VITE_BASE_URL;
+  const baseURL = import.meta.env.VITE_BASE_URL;
 
   const contentInput  = useRef(null);
 
 // handle update post
  function handleUpdatePost(formData) {
-    return  axios.put(`https://linked-posts.routemisr.com/posts/${post.id}`, formData, {
+    return  axios.put(`${baseURL}/posts/${post.id}`, formData, {
           headers: {
               Authorization: `Bearer ${localStorage.getItem("userToken")}`
           }

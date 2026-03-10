@@ -43,8 +43,8 @@ export default function Register() {
             console.log(error);
             
             
-            let errorMessage = error.message || error.response?.data?.message || error.response?.data?.error;
-            toast.error(errorMessage)
+            // let errorMessage = error.message || error.response?.data?.message || error.response?.data?.error;
+            toast.error("failed")
         }
         
     }
